@@ -15,7 +15,7 @@ REQUIRED => # HASURA URL - HASURA SECRET KEY
 | METHOD | PATH                      | AUTH |
 | ------ | ------------------------- | ---- |
 | GET    | company/:id               | NO   |
-| GET    | user/id                   | NO   |
+| GET    | user/:id                  | NO   |
 | POST   | insert-user               | NO   |
 | POST   | insert-company            | NO   |
 | POST   | insert-partnership        | NO   |
@@ -28,15 +28,14 @@ REQUIRED => # HASURA URL - HASURA SECRET KEY
 | PUT    | edit-user                 | NO   |
 | PUT    | edit-company              | NO   |
 
-
 ## DB TABLE
 
-<br>TABLE</br>
+<b>TABLE</b>
 COMPANIES , USERS , PARTNERSHIP , PARTNERSHIP_DETAILS
+
 <hr>
 
-<br>RELATIONSHIP</br>
+<b>RELATIONSHIP</b>
 PARTNERSHIP.company_id = COMPANIES.id
 PARTNERSHIP.user_id = USERS.id
 PARTNERSHIP_DETAILS.partnership_id = PARTNERSHIP.id
-
