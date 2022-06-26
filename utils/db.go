@@ -119,6 +119,7 @@ func grq_req(query string, mutation []byte, is_mutation bool, table_type int) st
 		} else if table_type == 11 {
 			var companies models.Companies
 			json.Unmarshal([]byte(mutation), &companies)
+			req.Var("company_id", companies.Id)
 			req.Var("updated_at", companies.UpdatedAt)
 			req.Var("company_email", companies.CompanyEmail)
 			req.Var("company_name", companies.CompanyName)

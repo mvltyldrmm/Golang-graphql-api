@@ -29,10 +29,11 @@ func insertUser(w http.ResponseWriter, r *http.Request) {
 		insert_company_management_users(objects: {email: $email, name: $name, number: $number, surname: $surname}) {
 		  returning {
 			id
+			name
+			number
 		  }
 		}
-	  }
-	  
+	  }	  
 	`
 	insert_user := utils.Run(insert_users_mutation, x, true, 1)
 

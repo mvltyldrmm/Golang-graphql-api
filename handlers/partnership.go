@@ -55,8 +55,17 @@ func insertPartnershipDetails(w http.ResponseWriter, r *http.Request) {
 	mutation insertPartnershipDetails($partnership_id: uuid = "", $account_type: numeric = "") {
 		insert_company_management_partnership_details(objects: {partnership_id: $partnership_id, is_active: true, account_type: $account_type}) {
 		  affected_rows
+		  returning {
+			partnership_id
+			is_deactive
+			is_active
+			id
+			deactive_at
+			account_type
+		  }
 		}
 	  }
+	  
 	`
 	insert_partnership_details := utils.Run(insert_partnership_details_mutation, y, true, 4)
 	if errs != nil {
